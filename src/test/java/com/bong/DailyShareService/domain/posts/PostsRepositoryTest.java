@@ -31,17 +31,10 @@ public class PostsRepositoryTest {
         String title = "테스트 제목";
         String content = "테스트 내용";
 
-        User user = User.builder()
-                .nickname("테스트 유저")
-                .email("테스트 이메일")
-                .role(Role.USER)
-                .picture("테스트 사진")
-                .build();
-
         Posts posts = Posts.builder()
                 .title(title)
                 .content(content)
-                .user(user)
+                .writer("유저1")
                 .build();
 
         postsRepository.save(posts);
@@ -53,8 +46,7 @@ public class PostsRepositoryTest {
         Posts testPost = postsList.get(0);
         assertThat(testPost.getTitle()).isEqualTo(title);
         assertThat(testPost.getContent()).isEqualTo(content);
-        assertThat(testPost.getWriter()).isEqualTo("테스트 유저");
-        assertThat(testPost.getUser().getPicture()).isEqualTo("테스트 사진");
+        assertThat(testPost.getWriter()).isEqualTo("유저1");
         assertThat(testPost.getViewCount()).isEqualTo(0);
     }
 }

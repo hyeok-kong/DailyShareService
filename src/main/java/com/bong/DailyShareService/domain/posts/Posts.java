@@ -37,11 +37,17 @@ public class Posts extends BaseTimeEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
+
     @Builder
-    public Posts(String title, String content, User user) {
+    public Posts(String title, String content, String writer, User user) {
         this.title = title;
         this.content = content;
-        this.writer = user.getNickname();
+        this.writer = writer;
         this.user = user;
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }
