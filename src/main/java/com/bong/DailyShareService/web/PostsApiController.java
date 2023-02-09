@@ -1,6 +1,7 @@
 package com.bong.DailyShareService.web;
 
 
+import com.bong.DailyShareService.domain.posts.Posts;
 import com.bong.DailyShareService.service.PostsService;
 import com.bong.DailyShareService.web.dto.posts.PostsResponseDto;
 import com.bong.DailyShareService.web.dto.posts.PostsSaveRequestDto;
