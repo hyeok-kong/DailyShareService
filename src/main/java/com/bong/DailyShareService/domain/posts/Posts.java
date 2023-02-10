@@ -11,6 +11,7 @@ import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 
+
 @Getter
 @NoArgsConstructor
 @DynamicInsert
@@ -31,7 +32,7 @@ public class Posts extends BaseTimeEntity {
     private String writer;
 
     @ColumnDefault("0")
-    private Long viewCount;
+    private int viewCount;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id")
@@ -39,11 +40,10 @@ public class Posts extends BaseTimeEntity {
 
 
     @Builder
-    public Posts(String title, String content, String writer, User user) {
+    public Posts(String title, String content, String writer) {
         this.title = title;
         this.content = content;
         this.writer = writer;
-        this.user = user;
     }
 
     public void update(String title, String content) {

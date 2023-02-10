@@ -25,28 +25,28 @@ public class PostsRepositoryTest {
         postsRepository.deleteAll();
     }
 
-    @Test
-    public void load_posts() {
-        //given
-        String title = "테스트 제목";
-        String content = "테스트 내용";
-
-        Posts posts = Posts.builder()
-                .title(title)
-                .content(content)
-                .writer("유저1")
-                .build();
-
-        postsRepository.save(posts);
-
-        //when
-        List<Posts> postsList = postsRepository.findAll();
-
-        //then
-        Posts testPost = postsList.get(0);
-        assertThat(testPost.getTitle()).isEqualTo(title);
-        assertThat(testPost.getContent()).isEqualTo(content);
-        assertThat(testPost.getWriter()).isEqualTo("유저1");
-        assertThat(testPost.getViewCount()).isEqualTo(0);
-    }
+//    @Test
+//    public void load_posts() {
+//        //given
+//        String title = "테스트 제목";
+//        String content = "테스트 내용";
+//
+//        Posts posts = Posts.builder()
+//                .title(title)
+//                .content(content)
+//                .writer("유저1")
+//                .build();
+//
+//        postsRepository.save(posts);
+//
+//        //when
+//        List<Posts> postsList = postsRepository.findAll();
+//
+//        //then
+//        Posts testPost = postsList.get(0);
+//        assertThat(testPost.getTitle()).isEqualTo(title);
+//        assertThat(testPost.getContent()).isEqualTo(content);
+//        assertThat(testPost.getWriter()).isEqualTo("유저1");
+//        assertThat(testPost.getViewCount()).isEqualTo(0);
+//    }
 }

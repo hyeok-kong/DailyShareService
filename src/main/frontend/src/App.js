@@ -1,19 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function App() {
-   const [hello, setHello] = useState('')
+   const [posts, setPosts] = useState(null)
 
     useEffect(() => {
-        axios.get('/api/hello')
-        .then(response => setHello(response.data))
+        axios.get('/api/posts')
+        .then(response => setPosts(response.data))
         .catch(error => console.log(error))
     }, []);
 
     return (
-        <div>
-            백엔드에서 가져온 데이터입니다 : {hello}
-        </div>
+        <Link to={"/savePosts"}
+          state={{grade : 'cho'}}>
+          <Button
+            color="secondary"
+            variant="contained">
+            초급
+          </Button>
+        </Link>
     );
 }
 

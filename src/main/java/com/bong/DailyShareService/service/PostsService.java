@@ -2,6 +2,7 @@ package com.bong.DailyShareService.service;
 
 import com.bong.DailyShareService.domain.posts.Posts;
 import com.bong.DailyShareService.domain.posts.PostsRepository;
+import com.bong.DailyShareService.web.dto.posts.PostsListResponseDto;
 import com.bong.DailyShareService.web.dto.posts.PostsResponseDto;
 import com.bong.DailyShareService.web.dto.posts.PostsSaveRequestDto;
 import com.bong.DailyShareService.web.dto.posts.PostsUpdateRequestDto;
@@ -9,6 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -47,7 +51,15 @@ public class PostsService {
     }
 
     @Transactional
-    public Long increaseViewCount(Long id) {
+    public int increaseViewCount(Long id) {
         return postsRepository.increaseViewCount(id);
+    }
+
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 }
