@@ -1,6 +1,3 @@
-pip install BeautifulSoup4
-pip install requests
-
 def get_herf(soup):
     result = []
     div = soup.find("div",class_="w_news_list type_issue")
@@ -15,8 +12,17 @@ def crawling(soup) :
 
 list_href = []
 list_content = []
-for i in range(1,8):    
-    url = "https://news.sbs.co.kr/news/newsSection.do?sectionType=09&pageDate=2023020"+str(i)
+y = '301'
+for i in range(1,91):
+    if(i < 10):
+        i = '0'+str(i)
+    if(int(i) > 30):
+        i = i - 30
+        y = '212'
+    if(int(i) > 60):
+        i = i - 60
+        y = '211'
+    url = "https://news.sbs.co.kr/news/newsSection.do?sectionType=09&pageDate=202"+"y"+str(i)
     req = requests.get(url)
     soup = BeautifulSoup(req.text, "html.parser")
     
@@ -29,6 +35,7 @@ for i in range(1,8):
         result = crawling(href_soup)
         list_content.append(result)
 print(list_content)
+
 
 ######
 

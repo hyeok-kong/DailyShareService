@@ -18,3 +18,13 @@ for i in range(12,60):
     result = crawling(soup)
     list_content.append(result)
 print(list_content)
+
+import numpy as np
+list_content2 = np.array(list_content2)
+list_content2.shape
+keywords2 = []
+for i in range(len(list_content2)):
+    keywords2.append('food')
+keywords2 = np.array(keywords2)
+l_c2 = np.column_stack((list_content2,keywords2))
+l_c2
