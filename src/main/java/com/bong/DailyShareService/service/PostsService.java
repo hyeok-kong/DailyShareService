@@ -2,6 +2,7 @@ package com.bong.DailyShareService.service;
 
 import com.bong.DailyShareService.domain.posts.Posts;
 import com.bong.DailyShareService.domain.posts.PostsRepository;
+import com.bong.DailyShareService.domain.user.UserRepository;
 import com.bong.DailyShareService.web.dto.posts.PostsListResponseDto;
 import com.bong.DailyShareService.web.dto.posts.PostsResponseDto;
 import com.bong.DailyShareService.web.dto.posts.PostsSaveRequestDto;
@@ -19,9 +20,12 @@ import java.util.stream.Collectors;
 public class PostsService {
 
     private final PostsRepository postsRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public Long save(@RequestBody PostsSaveRequestDto requestDto) {
+        requestDto.setUser(userRepository.findByName(requestDto.getWriter()));
+
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 

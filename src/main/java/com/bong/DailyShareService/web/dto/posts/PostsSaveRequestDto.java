@@ -13,6 +13,7 @@ public class PostsSaveRequestDto {
     private String title;
     private String content;
     private String writer;
+    private User user;
 
     @Builder
     public PostsSaveRequestDto(String title, String content, String writer) {
@@ -26,6 +27,12 @@ public class PostsSaveRequestDto {
                 .title(title)
                 .content(content)
                 .writer(writer)
+                .user(user)
                 .build();
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 }

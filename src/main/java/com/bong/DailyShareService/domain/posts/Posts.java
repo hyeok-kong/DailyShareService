@@ -34,16 +34,17 @@ public class Posts extends BaseTimeEntity {
     @ColumnDefault("0")
     private int viewCount;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
 
     @Builder
-    public Posts(String title, String content, String writer) {
+    public Posts(String title, String content, String writer, User user) {
         this.title = title;
         this.content = content;
         this.writer = writer;
+        this.user = user;
     }
 
     public void update(String title, String content) {

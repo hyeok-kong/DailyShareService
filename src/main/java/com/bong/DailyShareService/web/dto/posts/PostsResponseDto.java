@@ -1,7 +1,6 @@
 package com.bong.DailyShareService.web.dto.posts;
 
 import com.bong.DailyShareService.domain.posts.Posts;
-import com.bong.DailyShareService.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
