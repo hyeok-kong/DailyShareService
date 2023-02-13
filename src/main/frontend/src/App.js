@@ -5,24 +5,24 @@ import './App.css';
 function Thead(){
   return <thead>
       <tr>
+        <th>유저등급</th>
         <th>번호</th>
         <th>제목</th>
         <th>내용</th>
-        <th>페이지번호</th>
       </tr>
     </thead>
 }
 function Tbody(props){
   const list = []
-  for(let i = (props.page-1)*10; i < props.D_B.length - (props.page-1)*10; i++){                            //중요
+  for(let i = 0; i < props.D_B.length; i++){
     let t = props.D_B[i]
     list.push(
     <>
     <tr>
+      <td>{t.userId}</td>
       <td>{t.id}</td>
       <td>{t.title}</td>
       <td><a href=''>{t.body}</a></td>
-      <td>{t.userId}</td>
     </tr>
     </>
     )
@@ -33,8 +33,8 @@ function Tbody(props){
 function A(props){                                                                    //페이지숫자 컴포넌트 게시글 개수에 맞춰 페이지 숫자가 생성되고 누를때마다 현페이를 나타내슨 변수를 변경하도록 함
   const index = []
   let pagesu = 0
-  if(props.maximum%10 === 0){pagesu = props.maximum/props.zip}
-  else{pagesu = props.maximum/props.zip +1}
+  if(props.maximum%10 === 0){pagesu = props.maximum/10}
+  else{pagesu = props.maximum/10 +1}
   for(let i = 1; i <= pagesu; i++){
     index.push(<a href = {i}>{i}</a>)
   }
@@ -57,10 +57,9 @@ function App() {
     // {id:10, title:"ㅅ", writer:"루나ㅅ", date:70200917, click:700},
     // {id:11, title:"ㅇ", writer:"루나ㅇ", date:80200917, click:800}
   ]
-
-  const [maximum,setmaximum] = useState(100)                                                //전체글의 수
-  const [page,setpage] = useState(10)                                                      //밑에 a태그를 누르면 같이 적용되도록 구현 (현재 41로 가정!!)
-  const [zip,setzip] = useState(10)                                                       //한페이지에 나타낼 글의 개수
+  const [info,getinfo] = useState()
+  const [maximum,setmaximum] = useState(41)                                                //!!!!함수로 게시판 개수 가져오기
+  const [page,setpage] = useState(0)                                                      //밑에 a태그를 누르면 같이 적용되도록 구현 (현재 41로 가정!!)
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -102,9 +101,9 @@ function App() {
 
       <table width = "1500px"  height = "100px" margin = "500px">
         <Thead></Thead>
-        <Tbody D_B={posts} page = {page}></Tbody>
+        <Tbody D_B={posts}></Tbody>
       </table>
-      <A maximum={maximum} zip = {zip}></A>
+      <A maximum={maximum}></A>
       <button type = "button" onClick="location.href=''">글작성</button>
     </div>
     );
