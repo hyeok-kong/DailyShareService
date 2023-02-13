@@ -1,44 +1,44 @@
-{{>layout/header}}
+<!--{{>layout/header}}-->
 
-<h1>Daily Share</h1>
-<div class="col-md-12">
-    <div class="row">
-        <div class="col-md-6">
-            <a href="/posts/save" role="button" class="btn btn-primary">new post</a>
-            {{#user}}
-                Logged in as: <span id="user">{{user.name}}</span>
-                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-            {{/user}}
-            {{^user}}
-                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
-            {{/user}}
-        </div>
-    </div>
-    <br>
-    <!-- 목록 출력 영역 -->
-    <table class="table table-horizontal table-bordered">
-        <thead class="thead-strong">
-        <tr>
-            <th>number</th>
-            <th>title</th>
-            <th>writer</th>
-            <th>modified_date</th>
-            <th>조회수</th>
-        </tr>
-        </thead>
-        <tbody id="tbody">
-        {{#posts}}
-            <tr>
-                <td>{{id}}</td>
-                <td><a href="/posts/update/{{id}}">{{title}}</a></td>
-                <td>{{writer}}</td>
-                <td>{{modifiedDate}}</td>
-                <td>{{viewCount}}</td>
-            </tr>
-        {{/posts}}
-        </tbody>
-    </table>
-</div>
+<!--<h1>Daily Share</h1>-->
+<!--<div class="col-md-12">-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-6">-->
+<!--            <a href="/posts/save" role="button" class="btn btn-primary">new post</a>-->
+<!--            {{#user}}-->
+<!--                Logged in as: <span id="user">{{user.name}}</span>-->
+<!--                <a href="/logout" class="btn btn-info active" role="button">Logout</a>-->
+<!--            {{/user}}-->
+<!--            {{^user}}-->
+<!--                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>-->
+<!--                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>-->
+<!--            {{/user}}-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <br>-->
+<!--    &lt;!&ndash; 목록 출력 영역 &ndash;&gt;-->
+<!--    <table class="table table-horizontal table-bordered">-->
+<!--        <thead class="thead-strong">-->
+<!--        <tr>-->
+<!--            <th>number</th>-->
+<!--            <th>title</th>-->
+<!--            <th>writer</th>-->
+<!--            <th>modified_date</th>-->
+<!--            <th>조회수</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody id="tbody">-->
+<!--        {{#posts}}-->
+<!--            <tr>-->
+<!--                <td>{{id}}</td>-->
+<!--                <td><a href="/posts/update/{{id}}">{{title}}</a></td>-->
+<!--                <td>{{writer}}</td>-->
+<!--                <td>{{modifiedDate}}</td>-->
+<!--                <td>{{viewCount}}</td>-->
+<!--            </tr>-->
+<!--        {{/posts}}-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</div>-->
 
-{{>layout/footer}}
+<!--{{>layout/footer}}-->
