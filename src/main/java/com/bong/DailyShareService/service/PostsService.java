@@ -8,6 +8,8 @@ import com.bong.DailyShareService.web.dto.posts.PostsResponseDto;
 import com.bong.DailyShareService.web.dto.posts.PostsSaveRequestDto;
 import com.bong.DailyShareService.web.dto.posts.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -65,5 +67,10 @@ public class PostsService {
         return postsRepository.findAllDesc().stream()
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public Page<Posts> pageList(Pageable pageable) {
+        return postsRepository.findAll(pageable);
     }
 }
