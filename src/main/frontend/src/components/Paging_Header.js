@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header(props) {
+function Paging_Header(props) {
     
     return (
         <>
@@ -14,4 +14,4 @@ function Header(props) {
     );
 }
 
-export default Header;
+export default Paging_Header;
