@@ -7,10 +7,10 @@ function Tbody(props) {
         list.push(
         <>
         <tr>
-            <td>{t.userId}</td>
             <td>{t.id}</td>
+            <td>{t.writer}</td>
             <td>{t.title}</td>
-            <td><a href=''>{t.body}</a></td>
+            <td>{t.viewCount}</td>
         </tr>
         </>
         )
