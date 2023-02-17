@@ -39,12 +39,12 @@ public class PostsApiController {
         return id;
     }
 
-    @GetMapping("/api/v1/posts")
-    public List<PostsListResponseDto> findAllDesc() {
-        return postsService.findAllDesc();
-    }
+//    @GetMapping("/api/v1/posts")
+//    public List<PostsListResponseDto> findAllDesc() {
+//        return postsService.findAllDesc();
+//    }
 
-    @GetMapping("/posts")
+    @GetMapping("/api/v1/posts")
     public Page<PostsListResponseDto> pageList( @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
         return postsService.pageList(pageable).map(PostsListResponseDto::new);
     }
