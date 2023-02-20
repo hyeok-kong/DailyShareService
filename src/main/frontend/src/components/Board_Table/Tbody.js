@@ -2,8 +2,8 @@ import React from 'react';
 
 function Tbody(props) {
     const list = []
-    for(let i = 0; i < props.DB.length; i++){
-        let t = props.DB[i]
+    for(const element of props.DB){
+        let t = element
         list.push(
         <>
         <tr>
