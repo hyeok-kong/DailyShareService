@@ -1,10 +1,13 @@
 
 import React, {useEffect, useState} from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import Paging_Header from './components/Paging/Paging_Header'
-import Board_Table from './components/Board_Table/Board_Table'
-// import Main from './components/Paging/Main'                                                            //라우터 준비
+import Header from './components/Paging/Header';
+import Main from './components/Paging/Main'                                                               //라우터 준비
+import Login from './components/Paging/Login'
+import Product from './components/Paging/Product'
+import NotFound from './components/Paging/NotFound'
 
 
 function App() {
@@ -35,18 +38,20 @@ function App() {
   
   return (
     <div className="App">
-      <Paging_Header />
-      <Board_Table DB = {data}/>
-      {/* <Main DB = {data}/> */}
-
-      {pagebuttons.map(function(p){
-        return <button key={p} onClick = {() => {setURL(`http://localhost:8080/api/v1/posts?page=${p-1}`)}}>{p}</button>
-      })
-    }
+      <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk?lang=ko" target="_blank">
+        <img src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" alt="카카오톡로그인"></ img>
+      </a>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main DB = {data} pagebuttons = {pagebuttons} setURL = {setURL}/>}></Route>
+          <Route path="/Login/*" element={<Login />}></Route>
+          <Route path="/posts/*" element={<Product/>}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
 
   );
 }
-
-
 export default App;
