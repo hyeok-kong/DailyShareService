@@ -31,7 +31,7 @@ public class UserRepositoryTest {
         String email = "테스트 이메일";
 
         User user = User.builder()
-                .nickname(nickname)
+                .name(nickname)
                 .email(email)
                 .role(Role.USER)
                 .picture("테스트 사진")
