@@ -38,7 +38,7 @@ function App() {
   
   return (
     <div className="App">
-      <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk?lang=ko" target="_blank">
+      <a href="http://localhost:8080/oauth2/authorization/google?redirect_uri" target="_blank">
         <img src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" alt="카카오톡로그인"></ img>
       </a>
       <BrowserRouter>
