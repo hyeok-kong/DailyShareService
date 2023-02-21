@@ -38,12 +38,15 @@ function App() {
   
   return (
     <div className="App">
+      <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk?lang=ko" target="_blank">
+        <img src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" alt="카카오톡로그인"></ img>
+      </a>
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Main DB = {data} pagebuttons = {pagebuttons} setURL = {setURL}/>}></Route>
           <Route path="/Login/*" element={<Login />}></Route>
-          <Route path="/posts/*" element={<Product id = {2}/>}></Route>
+          <Route path="/posts/*" element={<Product/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

@@ -1,15 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+
 
 function Product(props) {
     const [detail, setDetail] = useState([]);
+    const location = useLocation();
     useEffect(() => {
         const fetchDetail = async () => {
-            const response = await axios.get(`http://localhost:8080/api/v1/posts/${props.id}`,);
+            const response = await axios.get(`http://localhost:8080/api/v1${location.pathname}`,);
             setDetail(response.data);
         };
         fetchDetail();
       },);
+
+
 
     return (
         <>
@@ -24,6 +29,7 @@ function Product(props) {
 
         <h2>내용</h2>
         <p>{detail.content}</p>
+        
         </>    
     );
 }
