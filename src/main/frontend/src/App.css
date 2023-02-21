@@ -29,7 +29,9 @@
   }
 }
 
-
+.Table {
+  
+}
 
 .collapse {
   border-collapse: collapse;
@@ -40,7 +42,7 @@
 
 
 body {
-  padding: 24px;
+  
 }
 
 table {
@@ -55,6 +57,3 @@ td, th {
   text-align: center;
 }
 
-.MainScreen {
-  
-}
