@@ -30,6 +30,7 @@ public class SecurityConfig {
                     .mvcMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll()
                     .mvcMatchers("/api/v1/posts").permitAll()
                     .mvcMatchers("/api/v1/**").authenticated()
+                    .mvcMatchers("/token/**").permitAll()
 //                    .mvcMatchers("/api/v1/**").hasRole(Role.USER.name())
                     .anyRequest().permitAll()
                 .and()
