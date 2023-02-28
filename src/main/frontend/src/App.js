@@ -1,6 +1,6 @@
 
 import React, {useEffect, useState} from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import Header from './components/Paging/Header';
@@ -9,11 +9,12 @@ import Login from './components/Paging/Login'
 import Product from './components/Paging/Product'
 import NotFound from './components/Paging/NotFound'
 
-
 function App() {
   // 데이터 가져오기
   const [URL, setURL] = useState("http://localhost:8080/api/v1/posts")                                     //http://localhost:8080/posts?page=2  
   const [data, setData] = useState([]);
+  const [isLogin,setisLogin] = useState(true);                                                             //로그인 여부
+
   useEffect(() => {
     const fetchData = async () => {
         const response = await axios.get(URL,);
@@ -38,14 +39,14 @@ function App() {
   
   return (
     <div className="App">
-      <a href="http://localhost:8080/oauth2/authorization/google?redirect_uri   " target="_blank">
-        <img src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" alt="카카오톡로그인"></ img>
+      <a href="http://localhost:8080/oauth2/authorization/google?re" target="_self">
+        <img src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png?hl=ko" alt="구글로그인"></ img>
       </a>
       <BrowserRouter>
-        <Header />
+        <Header isLogin = {isLogin}/>
         <Routes>
-          <Route path="/" element={<Main DB = {data} pagebuttons = {pagebuttons} setURL = {setURL}/>}></Route>
-          <Route path="/Login/*" element={<Login />}></Route>
+          <Route path="/" element={<Main DB = {data} pagebuttons = {pagebuttons} setURL = {setURL} setisLogin = {setisLogin}/>}></Route>
+          <Route path="/Login" element={<Login DB = {data} pagebuttons = {pagebuttons} setURL = {setURL} setisLogin = {setisLogin}/>}></Route>
           <Route path="/posts/*" element={<Product/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
