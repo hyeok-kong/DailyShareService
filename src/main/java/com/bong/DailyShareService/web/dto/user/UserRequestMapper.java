@@ -11,7 +11,6 @@ public class UserRequestMapper {
         return UserDto.builder()
                 .email((String)attributes.get("email"))
                 .name((String)attributes.get("name"))
-                .picture((String)attributes.get("picture"))
                 .build();
     }
 }

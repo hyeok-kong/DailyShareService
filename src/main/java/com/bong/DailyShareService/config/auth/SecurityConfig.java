@@ -27,10 +27,10 @@ public class SecurityConfig {
                 .headers().frameOptions().disable()
                 .and()
                     .authorizeRequests()
-                    .mvcMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll()
-                    .mvcMatchers("/api/v1/posts").permitAll()
-                    .mvcMatchers("/api/v1/**").authenticated()
-                    .mvcMatchers("/token/**").permitAll()
+                    .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll()
+                    .antMatchers("/api/v1/posts").permitAll()
+//                    .mvcMatchers("/api/v1/**").authenticated()
+                    .antMatchers("/token/**").permitAll()
 //                    .mvcMatchers("/api/v1/**").hasRole(Role.USER.name())
                     .anyRequest().permitAll()
                 .and()
@@ -41,7 +41,7 @@ public class SecurityConfig {
                     .userInfoEndpoint()
                     .userService(oAuth2UserService);
 
-        http.addFilterBefore(new JwtAuthFilter(tokenService, userService), UsernamePasswordAuthenticationFilter.class);
+//        http.addFilterBefore(new JwtAuthFilter(tokenService, userService), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

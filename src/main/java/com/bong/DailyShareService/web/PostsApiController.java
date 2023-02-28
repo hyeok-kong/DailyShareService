@@ -46,6 +46,7 @@ public class PostsApiController {
 
     @GetMapping("/api/v1/posts")
     public Page<PostsListResponseDto> pageList( @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        System.out.println("----------- called -------------");
         return postsService.pageList(pageable).map(PostsListResponseDto::new);
     }
 
