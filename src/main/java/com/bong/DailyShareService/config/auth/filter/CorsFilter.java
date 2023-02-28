@@ -1,4 +1,4 @@
-package com.bong.DailyShareService.config.auth;
+package com.bong.DailyShareService.config.auth.filter;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
