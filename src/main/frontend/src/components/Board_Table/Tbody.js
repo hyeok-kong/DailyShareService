@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Tbody(props) {
     const list = []
-    props.DB.map(function(elements){
+    {props.DB && props.DB.map(function(elements){
         let t = elements
         let url = `/posts/${t.id}`
         list.push(
@@ -19,7 +19,7 @@ function Tbody(props) {
             </>
         )
 
-    })
+    })}
 
     return <tbody>{list}</tbody>
 }
