@@ -1,5 +1,6 @@
 package com.bong.DailyShareService.web.dto.user;
 
+import com.bong.DailyShareService.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,4 +18,5 @@ public class UserDto {
         this.name = name;
         this.picture = picture;
     }
+
 }
