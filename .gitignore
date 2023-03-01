@@ -1,4 +1,5 @@
 application-oauth.properties
+application-token.properties
 HELP.md
 .gradle
 build/

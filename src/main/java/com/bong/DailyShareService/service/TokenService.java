@@ -5,15 +5,20 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.Base64;
 import java.util.Date;
 
+@PropertySource("classpath:application-token.properties")
 @Service
 public class TokenService {
-    private String secretKey = "fuidjhlkjahAJHSKDFHAL623479hsjdflkhSJDHFLKA27shlkdjhf";
+
+    @Value("${secret}")
+    private String secretKey;
 
     @PostConstruct
     protected void init() {

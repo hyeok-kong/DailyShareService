@@ -29,6 +29,7 @@ public class User extends BaseTimeEntity {
     private Role role;
 
     private String picture;
+    private String token;
 
     @Builder
     public User(String name, String email, Role role, String picture) {
@@ -45,7 +46,4 @@ public class User extends BaseTimeEntity {
 
         return this;
     }
-
-
-
 }
