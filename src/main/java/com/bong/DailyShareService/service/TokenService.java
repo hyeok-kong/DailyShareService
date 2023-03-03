@@ -13,11 +13,11 @@ import javax.annotation.PostConstruct;
 import java.util.Base64;
 import java.util.Date;
 
-@PropertySource("classpath:application-token.properties")
+// @PropertySource("classpath:application-token.properties")
 @Service
 public class TokenService {
 
-    @Value("${secret}")
+    @Value("${secret:default_value}")
     private String secretKey;
 
     @PostConstruct

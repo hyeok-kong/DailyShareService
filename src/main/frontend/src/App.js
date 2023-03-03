@@ -38,20 +38,20 @@ function App() {
   const pagebuttons = [];                     for(let i = 1 ; i <= page ; i++)  {pagebuttons.push(i)}       //페이지 버튼에 쓸 배열
   
   return (
-    <div className="App">
+    <><div className="App">
       <a href="http://localhost:8080/oauth2/authorization/google?re" target="_self">
-        <img src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png?hl=ko" alt="구글로그인"></ img>
+        <img src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png?hl=ko" alt="구글로그인"></img>
       </a>
-      <BrowserRouter>
-        <Header isLogin = {isLogin}/>
+    </div><BrowserRouter>
+        <Header isLogin={isLogin} />
         <Routes>
-          <Route path="/" element={<Main DB = {data} pagebuttons = {pagebuttons} setURL = {setURL} setisLogin = {setisLogin}/>}></Route>
-          <Route path="/Login" element={<Login DB = {data} pagebuttons = {pagebuttons} setURL = {setURL} setisLogin = {setisLogin}/>}></Route>
-          <Route path="/posts/*" element={<Product/>}></Route>
+          <Route path="/" element={<Main DB={data} pagebuttons={pagebuttons} setURL={setURL} setisLogin={setisLogin} />}></Route>
+          <Route path="/Login" element={<Login DB={data} pagebuttons={pagebuttons} setURL={setURL} setisLogin={setisLogin} />}></Route>
+          <Route path="/posts/*" element={<Product />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
-      </BrowserRouter>
-    </div>
+      </BrowserRouter></>
+    
 
   );
 }
